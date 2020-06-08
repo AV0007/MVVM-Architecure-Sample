@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">MoviesDemo</string>
+    <string name="retry">Retry</string>
+    <string name="title">Title</string>
+    <string name="voting_avg">Voting Average</string>
+    <string name="overview">Overview</string>
+    <string name="release_date">Release Date</string>
+    <string name="no_data">No data</string>
+</resources>
