@@ -1,31 +1,38 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:layout_margin="8dp"
-    android:id="@+id/ll_layout"
-    android:background="@drawable/bg_stroke"
-    android:orientation="vertical">
-
-    <ImageView
-        android:id="@+id/movie_image"
+<layout>
+<data>
+    <variable
+        name="product"
+        type="com.example.moviesdemo.model.ModelDemo.Result" />
+</data>
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/ll_layout"
         android:layout_width="match_parent"
-        android:layout_height="300dp"
-        android:scaleType="fitXY">
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        android:background="@drawable/bg_stroke"
+        android:orientation="vertical">
 
-    </ImageView>
+        <ImageView
+            android:id="@+id/movie_image"
+            android:layout_width="match_parent"
+            android:layout_height="300dp"
+            android:scaleType="fitXY">
 
-    <TextView
-        android:id="@+id/movie_name"
-        android:layout_width="match_parent"
-        android:layout_height="?attr/actionBarSize"
-        android:layout_gravity="center"
-        android:background="@color/red"
-        android:gravity="center"
-        android:text="Django"
-        android:textColor="@android:color/white">
+        </ImageView>
 
-    </TextView>
+        <TextView
+            android:id="@+id/movie_name"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:layout_gravity="center"
+            android:background="@color/red"
+            android:gravity="center"
+            android:text="Django"
+            android:textColor="@android:color/white">
+
+        </TextView>
 
 
-</LinearLayout>
+    </LinearLayout>
+</layout>

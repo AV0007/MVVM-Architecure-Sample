@@ -22,7 +22,7 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
     @SuppressLint("CheckResult")
     fun getData() {
         RetrofitUtil.apiService().getData(
-            api_key = "8041131ee6ef1bced95f31970c7d3d03"
+            api_key = "API_KEY"
         ).subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread())
             .subscribe({ onSuccess(it) }, { onFailure(it) })
 

@@ -18,7 +18,7 @@ data class ModelDemo(
         val id: Int,
         val original_language: String,
         val original_title: String,
-        val overview: String,
+        var overview: String,
         val popularity: Double,
         val poster_path: String,
         val release_date: String,
@@ -26,5 +26,7 @@ data class ModelDemo(
         val video: Boolean,
         val vote_average: Double,
         val vote_count: Int
+
     ):Parcelable
 }
+

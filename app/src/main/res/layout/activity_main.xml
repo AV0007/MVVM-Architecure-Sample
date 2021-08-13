@@ -11,6 +11,7 @@
         android:id="@+id/shimmer"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:visibility="gone"
         shimmer:duration="800">
 
         <LinearLayout

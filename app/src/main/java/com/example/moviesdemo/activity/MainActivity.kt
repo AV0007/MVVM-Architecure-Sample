@@ -12,6 +12,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.GridLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.example.moviesdemo.R
 import com.example.moviesdemo.adapter.MoviesAdapter
 import com.example.moviesdemo.model.ModelDemo
@@ -22,9 +23,12 @@ class MainActivity : AppCompatActivity() {
     private lateinit var wordViewModel: MainViewModel
     private var mNetworkReceiver: BroadcastReceiver? = null
 
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
         wordViewModel = ViewModelProviders.of(this).get(MainViewModel::class.java)
         init()
         initControl()
@@ -38,6 +42,8 @@ class MainActivity : AppCompatActivity() {
                     if (isOnline()) {
                         updateUi(false)
                         wordViewModel.getData()
+                    }
+                    else{
 
                     }
                 } catch (e: NullPointerException) {
@@ -72,12 +78,15 @@ class MainActivity : AppCompatActivity() {
         })
 
 
+
+
         wordViewModel.mAllUsers.observe(this, Observer {
 
             if ((it as ArrayList).size > 0) {
                 updateUi(true)
                 tv_no_data.visibility = View.GONE
                 rv_movies.visibility=View.VISIBLE
+
                 setAdapter(it[0].results as ArrayList)
 
             } else {
@@ -90,7 +99,9 @@ class MainActivity : AppCompatActivity() {
 
     fun setAdapter(arrayList: java.util.ArrayList<ModelDemo.Result>) {
         rv_movies.adapter = MoviesAdapter(this, arrayList)
-        rv_movies.layoutManager = GridLayoutManager(this, 2)
+        rv_movies.layoutManager = GridLayoutManager(this, 2) as RecyclerView.LayoutManager?
+
+
     }
 
     fun updateUi(isEnable: Boolean) {
@@ -100,7 +111,6 @@ class MainActivity : AppCompatActivity() {
         else{
             shimmer.startShimmerAnimation()
         }
-      //  progress_bar.visibility = if (isEnable) View.GONE else View.VISIBLE
     }
 
     private fun isOnline(): Boolean {

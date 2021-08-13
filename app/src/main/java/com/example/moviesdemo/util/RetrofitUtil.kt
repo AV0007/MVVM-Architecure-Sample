@@ -11,14 +11,13 @@ import retrofit2.converter.gson.GsonConverterFactory
 import retrofit2.converter.scalars.ScalarsConverterFactory
 
 import java.util.concurrent.TimeUnit
-//https://api.themoviedb.org/3/movie/popular?api_key=8041131ee6ef1bced95f31970c7d3d03
 //https://api.themoviedb.org/3/movie/{movie_id}?api_key=<<api_key>>&language=en-US
 object RetrofitUtil {
     fun apiService(
-            baseUrl: String = "https://api.themoviedb.org/3/",
-            connectionTimeOutInSec: Long = 15,
-            readTimeOutInSec: Long = 90,
-            writeTimeOutInSec: Long = 240
+        baseUrl: String = NetworkConstant.BASE_URL,
+        connectionTimeOutInSec: Long = 15,
+        readTimeOutInSec: Long = 90,
+        writeTimeOutInSec: Long = 240
 
     ): ApiServices {
         return getRetrofitClient(getokhttpClientBuilder(
